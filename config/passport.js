@@ -19,8 +19,8 @@ module.exports = function (passport) {
     //   credentials (in this case, a token, tokenSecret, and Google profile), and
     //   invoke a callback with a user object.
     passport.use(new GoogleStrategy({
-        clientID: "88790026746-vviks5nru46dbj5dqvc75qmaf17b9on8.apps.googleusercontent.com",
-        clientSecret: "v3Flz47tIo5NdNGvVVwJ0FK-",
+        clientID: "",
+        clientSecret: "",
         callbackURL: "http://localhost:8080/auth/google/callback",
         // passReqToCallback: true
     },
