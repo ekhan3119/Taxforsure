@@ -5,37 +5,46 @@ var db = ("../models");
 var db = require("../models");
 
 module.exports = function (app) {
-    app.get("/api/taxforsure", function (req, res) {
-        // Here we add an "include" property to our options in our findAll query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
+    app.get("/api/profile", function (req, res) {
+
         db.taxforsure.findAll({
-            include: [db.Post]
+            include: [db.taxforsure]
         }).then(function (dbtaxforsure) {
+            console.log(dbtaxforsure)
             res.json(dbtaxforsure);
         });
     });
+    app.post("/api/profile", function (req, res) {
+        console.log(req.body);
 
-    app.get("/api/taxforsure/:id", function (req, res) {
-        // Here we add an "include" property to our options in our findOne query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
+        db.taxforsure.create({
+            firstName: req.body.firstname,
+            lastName: req.body.lastName,
+
+
+        }).then(function (dbtaxforsure) {
+            res.json(dbtaxfosure);
+        });
+    });
+
+    app.get("/api/jobs/:id", function (req, res) {
+
         db.taxforsure.findOne({
             where: {
                 id: req.params.id
             },
-            include: [db.Post]
+            include: [db.taxforsure]
         }).then(function (dbtaxforsure) {
             res.json(dbtaxforsure);
         });
     });
 
-    app.post("/api/taxforsure", function (req, res) {
-        db.taxforsure.create(req.body).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
-        });
-    });
-
+    /*  app.post("/api/taxforsure", function (req, res) {
+         db.taxforsure.create(req.body).then(function (dbtaxforsure) {
+             res.json(dbtaxforsure);
+         });
+     });
+  */
     /*     app.delete("/api/taxforsure/:id", function (req, res) {
             db.taxforsure.destroy({
                 where: {

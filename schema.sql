@@ -1,4 +1,4 @@
-drop database taxforsure if exists;
+drop database if exists taxforsure;
 create database taxforsure;
 use taxforsure;
 
