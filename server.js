@@ -4,9 +4,9 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
 var axios = require('axios');
-var Sequelize = require('sequelize');
+//var Sequelize = require('sequelize');
 //var connection = new Sequelize('taxforsure, 'root','btpkry1708');
-var db = require("./models");
+var db = require("./model");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -27,3 +27,4 @@ db.sequelize.sync({}).then(function () {
         console.log("App listening on PORT " + PORT);
     });
 });
+

@@ -1,11 +1,11 @@
 module.exports = function (sequelize, DataTypes) {
     var Job = sequelize.define("Job", {
-        id: DataTypes.INTEGER
+        job_id: DataTypes.INTEGER
     });
 
-    JOb.associate = function (models) {
+    Job.associate = function (models) {
 
-        Job.hasone(models.User, {
+        Job.hasOne(models.User, {
             onDelete: "cascade"
         });
     };
