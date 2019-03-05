@@ -36,14 +36,14 @@ module.exports = function (app) {
         });
     });
 
-    app.delete("/api/taxforsure/:id", function (req, res) {
-        db.taxforsure.destroy({
-            where: {
-                id: req.params.id
-            }
-        }).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
+    /*     app.delete("/api/taxforsure/:id", function (req, res) {
+            db.taxforsure.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (dbtaxforsure) {
+                res.json(dbtaxforsure);
+            });
         });
-    });
-
+     */
 };

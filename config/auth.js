@@ -1,8 +1,8 @@
 import { google } from 'googleapis';
 
 const googleConfig = {
-    clientId: '88790026746-vviks5nru46dbj5dqvc75qmaf17b9on8.apps.googleusercontent.com', // e.g. asdfghjkljhgfdsghjk.apps.googleusercontent.com
-    clientSecret: 'v3Flz47tIo5NdNGvVVwJ0FK-', // e.g. _ASDFA%DFASDFASDFASD#FAD-
+    clientId: '', // e.g. asdfghjkljhgfdsghjk.apps.googleusercontent.com
+    clientSecret: '', // e.g. _ASDFA%DFASDFASDFASD#FAD-
     redirect: 'http://localhost:8080/auth/google/callback' // this must match your google api settings
 };
 
