@@ -7,29 +7,34 @@ var db = require("../models");
 module.exports = function (app) {
     app.get("/api/profile", function (req, res) {
 
-        db.taxforsure.findAll({
+        User.findAll({
             include: [db.taxforsure]
-        }).then(function (dbtaxforsure) {
-            console.log(dbtaxforsure)
-            res.json(dbtaxforsure);
+        }).then(function (User) {
+            console.log(User);
+            res.json(User);
         });
     });
     app.post("/api/profile", function (req, res) {
         console.log(req.body);
 
-        db.taxforsure.create({
+        db.User.create({
             firstName: req.body.firstname,
             lastName: req.body.lastName,
+            streetAddress: req.body.streetAddress,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode
 
 
-        }).then(function (dbtaxforsure) {
-            res.json(dbtaxfosure);
+
+        }).then(function (db) {
+            res.json(dbUser);
         });
     });
 
     app.get("/api/jobs/:id", function (req, res) {
 
-        db.taxforsure.findOne({
+        db.Job.findOne({
             where: {
                 id: req.params.id
             },
@@ -39,20 +44,27 @@ module.exports = function (app) {
         });
     });
 
-    /*  app.post("/api/taxforsure", function (req, res) {
-         db.taxforsure.create(req.body).then(function (dbtaxforsure) {
-             res.json(dbtaxforsure);
-         });
-     });
-  */
-    /*     app.delete("/api/taxforsure/:id", function (req, res) {
-            db.taxforsure.destroy({
-                where: {
-                    id: req.params.id
-                }
-            }).then(function (dbtaxforsure) {
-                res.json(dbtaxforsure);
+    app.post("/api/index", function (req, res) {
+        db.Jobuser.create({
+            where: {
+                rate: req.body.rate,
+                timeEntry: req.body.timeEntry
+            }
+        })
+
+            .then(function (dbJobuser) {
+                res.json(dbJobuser);
             });
+    });
+
+    app.delete("/api/jobs/:id", function (req, res) {
+        db.jobs.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbjob) {
+            res.json(dbjob);
         });
-     */
+    });
+
 };
