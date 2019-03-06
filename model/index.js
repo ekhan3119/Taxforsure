@@ -8,8 +8,8 @@ const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-/* User.hasMany(Job);
-Job.belongsTo(Userjob); */
+// User.hasMany(Userjob);
+// Job.belongsTo(Users);
 
 let sequelize;
 if (config.use_env_variable) {

@@ -6,6 +6,13 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: {
                 allowNull: false
             }
+        }, user_id: {
+
+            type: DataTypes.INTEGER,
+            foreignKey: {
+                allowNull: false
+            }
+
         }, job_id: {
             type: DataTypes.INTEGER,
             foreignKey: {

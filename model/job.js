@@ -10,5 +10,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         }
     });
+    // Job.belongsTo(User);
     return Job;
 };
