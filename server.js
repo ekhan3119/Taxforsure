@@ -4,7 +4,9 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
 var axios = require('axios');
-var db = require("./models");
+var bodyParser = require('body-parser');
+var db = require("./model");
+var path = require('path');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -12,6 +14,8 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+
 
 // Routes
 // =============================================================
@@ -25,3 +29,4 @@ db.sequelize.sync({}).then(function () {
         console.log("App listening on PORT " + PORT);
     });
 });
+

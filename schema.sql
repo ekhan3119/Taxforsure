@@ -1,8 +1,8 @@
-drop database taxforsure if exists;
+drop database if exists taxforsure;
 create database taxforsure;
 use taxforsure;
 
-CREATE TABLE users (
+/* CREATE TABLE users (
     `userId` INT AUTO_INCREMENT,
     `username` VARCHAR(50),
     `password` VARCHAR(32),
@@ -19,15 +19,17 @@ CREATE TABLE jobs (
     `JobNickName` varchar(50),
     PRIMARY KEY (`JobID`)
 );
-create table jobs_user(
+create table user_job(
   `userid` int(11) NOT NULL,
   `jobid` int(11) NOT NULL,
-  `rate` numeric(3,2) not null,
+  ``rate numeric(3,2) not null,
   `timeEntry` numeric(2,2) not null,
   `date` timestamp,
   PRIMARY KEY (`userid`,`jobid`),
   FOREIGN KEY (`userid`) REFERENCES users(`userId`) on delete cascade,
   FOREIGN KEY (`jobid`) REFERENCES jobs(`JobId`)  on delete cascade
 
-);
+); */
+
+
 
