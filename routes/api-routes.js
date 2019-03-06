@@ -25,8 +25,6 @@ module.exports = function (app) {
             state: req.body.state,
             zipcode: req.body.zipcode
 
-
-
         }).then(function (db) {
             res.json(dbUser);
         });

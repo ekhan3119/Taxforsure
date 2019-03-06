@@ -3,17 +3,16 @@ module.exports = function (sequelize, DataTypes) {
         user_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
         first_name: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING
         },
         last_name: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING
         },
         street_address: {
             type: DataTypes.STRING
-
         },
         state: {
             type: DataTypes.STRING
@@ -22,11 +21,18 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         zip_code: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
 
     });
 
+    /* User.associate = function (models) {
+        User.belongsTo(models.Userjob, {
+            foreignKey: {
+                allowNull: false
+            }
 
+        });
+    }; */
     return User;
 };
