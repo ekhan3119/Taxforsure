@@ -4,8 +4,7 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
 var axios = require('axios');
-//var Sequelize = require('sequelize');
-//var connection = new Sequelize('taxforsure, 'root','btpkry1708');
+//var bodyParser = require('body-parser')
 var db = require("./model");
 
 // Sets up the Express app to handle data parsing

@@ -10,6 +10,12 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         }
     });
-    // Job.belongsTo(User);
+    Job.associate = function (models) {
+        Job.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    }
     return Job;
 };

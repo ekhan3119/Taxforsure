@@ -7,7 +7,6 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         }, user_id: {
-
             type: DataTypes.INTEGER,
             foreignKey: {
                 allowNull: false
@@ -26,14 +25,14 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    /* Userjob.associate = function (models) {
-        Userjob.belongsTo(models.User {
+    Userjob.associate = function (models) {
+        Userjob.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
 
         });
-    } */
+    }
 
     return Userjob;
 };
