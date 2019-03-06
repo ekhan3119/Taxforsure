@@ -1,11 +1,11 @@
-var db = ("../models");
+var db = ("../model");
 
 // Routes
 // =============================================================
-var db = require("../models");
+var db = require("../model");
 
 module.exports = function (app) {
-    app.get("/api/profile", function (req, res) {
+    app.get("/api/user_profile", function (req, res) {
 
         User.findAll({
             include: [db.taxforsure]
@@ -14,7 +14,7 @@ module.exports = function (app) {
             res.json(User);
         });
     });
-    app.post("/api/profile", function (req, res) {
+    app.post("/api/user_profile", function (req, res) {
         console.log(req.body);
 
         db.User.create({

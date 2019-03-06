@@ -1,6 +1,6 @@
 drop database if exists taxforsure;
 create database taxforsure;
-use taxforsure;
+/* use taxforsure;
 
 CREATE TABLE users (
     `userId` INT AUTO_INCREMENT,
@@ -29,5 +29,7 @@ create table jobs_user(
   FOREIGN KEY (`userid`) REFERENCES users(`userId`) on delete cascade,
   FOREIGN KEY (`jobid`) REFERENCES jobs(`JobId`)  on delete cascade
 
-);
+); */
+
+
 
