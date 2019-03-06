@@ -1,13 +1,11 @@
 
 var db = require("../model");
-var express = require('express');
+//var express = require('express');
 
 
 
 module.exports = function (app, db) {
-
-
-    app.get("/api/user_profile", function (req, res) {
+    app.get("/api/profile", function (req, res) {
 
         db.User.findAll({
             include: [db.Job]
@@ -27,9 +25,19 @@ module.exports = function (app, db) {
             res.json(dbJob);
         });
     });
-    app.post("/api/profile", function (req, res) {
-        console.log(req.body);
 
+    app.get("api/index/:rate", function (req, res) {
+        db.Userjob.findAll({
+            where: {
+                rate: req.params.rate,
+                eimeEntry: req.params.timeEntry
+            }
+        }).then(function (dbUserjob) {
+            res.json(dbUserjob);
+        });
+    });
+    app.post("/api/profile", function (req, res) {
+        //console.log(req.body);
         db.User.create({
             firstName: req.body.firstname,
             lastName: req.body.lastName,
@@ -56,6 +64,26 @@ module.exports = function (app, db) {
             .then(function (dbUserjob) {
                 res.json(dbUserjob);
             });
+    });
+
+    app.put("/api/jobs/:id", function (req, res) {
+        db.Job.update({
+            where: {
+                id: req.body.id,
+                job_inckname: req.body.id
+            }
+        }).then(function (dbJob) {
+            res.jason(dbJob);
+        });
+    });
+    app.put("/api/profile/:id", function (req, res) {
+        db.Job.update({
+            where: {
+                id: req.body.id
+            }
+        }).then(function (dbJob) {
+            res.jason(dbJob);
+        });
     });
 
     app.delete("/api/jobs/:id", function (req, res) {
