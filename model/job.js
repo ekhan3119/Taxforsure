@@ -1,20 +1,27 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var Job = sequelize.define("Job", {
         job_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             primaryKey: true
         },
-        job_nickname: {
+        user_id: {
+            type: DataTypes.UUID,
+            foreignKey: true
+        },
+        job_name: {
             type: DataTypes.STRING
+        },
+        rate: {
+            type: DataTypes.DECIMAL
+        },
+        timeEntry: {
+            type: DataTypes.DECIMAL
         }
     });
-
-
-
-    Job.associate = function (models) {
+    Job.associate = function(models) {
         Job.belongsTo(models.User, {
-            through: "Userjob"
+            foreignKey: "user_id"
         });
-    }
+    };
     return Job;
 };
