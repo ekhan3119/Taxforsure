@@ -1,10 +1,15 @@
-
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
         user_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+        },
+        username: {
+            type: DataTypes.STRING
+        },
+        password: {
+            type: DataTypes.STRING
         },
         first_name: {
             type: DataTypes.STRING
@@ -24,24 +29,7 @@ module.exports = function (sequelize, DataTypes) {
         zip_code: {
             type: DataTypes.STRING
         }
-
     });
 
-    // User.associate = function (models) {
-    //     User.belongsToMany(models.Job, {
-    //         through: "Userjob",
-    //         as: "userid",
-    //         foreingKey: "user_id"
-    //     });
-    // }
-
-    /**
-     * classMethods: {
-    associate: function(models) {
-      User.belongsToMany(models.Project, {
-        through: 'UserProject'
-      });
-    }
-     */
     return User;
 };
