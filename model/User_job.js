@@ -1,18 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
-    var Userjob = sequelize.define("Userjob", {
+    var UserJob = sequelize.define("UserJob", {
 
         user_id: {
             type: DataTypes.INTEGER,
             primaryKey: true
-
-
         }, job_id: {
             type: DataTypes.INTEGER,
             primaryKey: true
-
         }, rate: {
             type: DataTypes.DECIMAL
-
         }, time_entry: {
             type: DataTypes.DECIMAL
         }
@@ -20,7 +16,22 @@ module.exports = function (sequelize, DataTypes) {
 
 
 
+    UserJob.associate = function (models) {
+        UserJob.belongsToMany(models.Job, {
+            through: "Job",
+            foreingKey: "job_id"
+        })
+
+    };
 
 
-    return Userjob;
+    UserJob.associate = function (models) {
+        UserJob.belongsToMany(models.Job, {
+            through: "User",
+            foreingKey: "user_id"
+        });
+    };
+
+
+    return UserJob;
 };

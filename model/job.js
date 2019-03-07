@@ -1,20 +1,40 @@
 module.exports = function (sequelize, DataTypes) {
     var Job = sequelize.define("Job", {
-        job_id: {
-            type: DataTypes.INTEGER,
+        user_id: {
+            type: DataTypes.UUID,
             primaryKey: true
         },
         job_nickname: {
             type: DataTypes.STRING
-        }
-    });
+        },
 
 
 
-    Job.associate = function (models) {
-        Job.belongsTo(models.User, {
-            through: "Userjob"
-        });
-    }
+    }, { underscored: true });
+
+    // Job.associate = function (models) {
+    //     Job.belongsToMany(models.UserJob, {
+    //         through: "UserJob",
+    //         as: ',
+    //         foreingKey: "job_id"
+
+    //     });
+    // }
     return Job;
 };
+
+/**
+ *
+ *
+ *
+ *    Job.associate = function (models) {
+        Job.belongsToMany(models.Userjob, {
+            through: "Userjob",
+            foreignKey: "user_id"
+
+        })
+    }
+ * through: 'GroupUsers',
+      as: 'groups',
+      foreignKey: 'userId'
+ */

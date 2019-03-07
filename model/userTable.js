@@ -27,11 +27,13 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
-    User.associate = function (models) {
-        User.belongsToMany(models.Job, {
-            through: "Userjob"
-        });
-    }
+    // User.associate = function (models) {
+    //     User.belongsToMany(models.Job, {
+    //         through: "Userjob",
+    //         as: "userid",
+    //         foreingKey: "user_id"
+    //     });
+    // }
 
     /**
      * classMethods: {
