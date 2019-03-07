@@ -1,22 +1,15 @@
 module.exports = function (sequelize, DataTypes) {
     var Userjob = sequelize.define("Userjob", {
 
-        job_user_id: {
+        user_id: {
             type: DataTypes.INTEGER,
-            primaryKey: {
-                allowNull: false
-            }
-        }, user_id: {
-            type: DataTypes.INTEGER,
-            foreignKey: {
-                allowNull: false
-            }
+            primaryKey: true
+
 
         }, job_id: {
             type: DataTypes.INTEGER,
-            foreignKey: {
-                allowNull: false
-            }
+            primaryKey: true
+
         }, rate: {
             type: DataTypes.DECIMAL
 
@@ -25,14 +18,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Userjob.associate = function (models) {
-        Userjob.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
 
-        });
-    }
+
+
 
     return Userjob;
 };

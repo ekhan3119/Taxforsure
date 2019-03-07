@@ -28,12 +28,18 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     User.associate = function (models) {
-        User.hasMany(models.Job, {
-            foreignKey: {
-                allowNull: true
-            }
-
+        User.belongsToMany(models.Job, {
+            through: "Userjob"
         });
-    };
+    }
+
+    /**
+     * classMethods: {
+    associate: function(models) {
+      User.belongsToMany(models.Project, {
+        through: 'UserProject'
+      });
+    }
+     */
     return User;
 };

@@ -10,7 +10,7 @@ module.exports = function (app, db) {
         db.User.findAll({
             include: [db.Job]
         }).then(function (dbUser) {
-            console.log(User);
+            console.log('User');
             res.json(dbUser);
         });
     });
