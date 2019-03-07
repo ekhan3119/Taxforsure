@@ -1,48 +1,98 @@
-var db = ("../models");
 
-// Routes
-// =============================================================
-var db = require("../models");
+var db = require("../model");
+//var express = require('express');
 
-module.exports = function (app) {
-    app.get("/api/taxforsure", function (req, res) {
-        // Here we add an "include" property to our options in our findAll query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
-        db.taxforsure.findAll({
-            include: [db.Post]
-        }).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
+
+
+module.exports = function (app, db) {
+    app.get("/api/profile", function (req, res) {
+
+        db.User.findAll({
+            include: [db.Job]
+        }).then(function (dbUser) {
+            console.log('User');
+            res.json(dbUser);
         });
     });
+    app.get("/api/jobs/:id", function (req, res) {
 
-    app.get("/api/taxforsure/:id", function (req, res) {
-        // Here we add an "include" property to our options in our findOne query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
-        db.taxforsure.findOne({
+        db.Job.findAll({
             where: {
                 id: req.params.id
             },
-            include: [db.Post]
-        }).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
+            include: [db.User]
+        }).then(function (dbJob) {
+            res.json(dbJob);
         });
     });
 
-    app.post("/api/taxforsure", function (req, res) {
-        db.taxforsure.create(req.body).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
+    app.get("api/index/:rate", function (req, res) {
+        db.Userjob.findAll({
+            where: {
+                rate: req.params.rate,
+                eimeEntry: req.params.timeEntry
+            }
+        }).then(function (dbUserjob) {
+            res.json(dbUserjob);
+        });
+    });
+    app.post("/api/profile", function (req, res) {
+        //console.log(req.body);
+        db.User.create({
+            firstName: req.body.firstname,
+            lastName: req.body.lastName,
+            streetAddress: req.body.streetAddress,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode
+
+        }).then(function (dbUser) {
+            res.json(dbUser);
         });
     });
 
-    app.delete("/api/taxforsure/:id", function (req, res) {
-        db.taxforsure.destroy({
+
+
+    app.post("/api/index", function (req, res) {
+        db.Userjob.create({
+            where: {
+                rate: req.body.rate,
+                timeEntry: req.body.timeEntry
+            }
+        })
+
+            .then(function (dbUserjob) {
+                res.json(dbUserjob);
+            });
+    });
+
+    app.put("/api/jobs/:id", function (req, res) {
+        db.Job.update({
+            where: {
+                id: req.body.id,
+                job_inckname: req.body.id
+            }
+        }).then(function (dbJob) {
+            res.jason(dbJob);
+        });
+    });
+    app.put("/api/profile/:id", function (req, res) {
+        db.Job.update({
+            where: {
+                id: req.body.id
+            }
+        }).then(function (dbJob) {
+            res.jason(dbJob);
+        });
+    });
+
+    app.delete("/api/jobs/:id", function (req, res) {
+        db.jobs.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function (dbtaxforsure) {
-            res.json(dbtaxforsure);
+        }).then(function (dbjob) {
+            res.json(dbjob);
         });
     });
 
