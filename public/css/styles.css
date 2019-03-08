@@ -1,3 +1,35 @@
-.nav{
-    float: right
+body {
+    border: 20px 
+}
+
+.jobsbox {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.timebox {
+    background: #f4f4f4;
+    border-right:  20px solid white;
+    border-left:  20px solid white;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+table{
+    border: 1px solid black;
+    width: 1000px;
+}
+th{
+    width: 900px;
+}
+
+.save{
+    box-align: right
+}
+
+
 }
