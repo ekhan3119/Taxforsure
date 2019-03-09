@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Job = sequelize.define("Job", {
         job_id: {
             type: DataTypes.UUID,
@@ -18,10 +18,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DECIMAL
         }
     });
-    Job.associate = function(models) {
-        Job.belongsTo(models.User, {
-            foreignKey: "user_id"
-        });
-    };
+    /*     Job.associate = function(models) {
+            Job.belongsTo(models.User, {
+                foreignKey: "user_id"
+            });
+        }; */
     return Job;
 };

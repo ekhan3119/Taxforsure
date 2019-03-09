@@ -27,7 +27,7 @@ module.exports = function (app) {
     app.post("/api/profile", function (req, res) {
         console.log(req.body);
         db.User.create({
-            firstName: req.body.firstname,
+            first_name: req.body.firstname,
             lastName: req.body.lastName,
             email: req.body.email,
             streetAddress: req.body.streetAddress,
