@@ -1,11 +1,5 @@
-
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        user_id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
         first_name: {
             type: DataTypes.STRING
         },
@@ -24,22 +18,7 @@ module.exports = function (sequelize, DataTypes) {
         zip_code: {
             type: DataTypes.STRING
         }
-
     });
 
-    User.associate = function (models) {
-        User.belongsToMany(models.Job, {
-            through: "Userjob"
-        });
-    }
-
-    /**
-     * classMethods: {
-    associate: function(models) {
-      User.belongsToMany(models.Project, {
-        through: 'UserProject'
-      });
-    }
-     */
     return User;
 };
