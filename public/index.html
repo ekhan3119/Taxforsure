@@ -66,7 +66,7 @@
             <input type="text" name="daterange" value="12/31/2018 - 01/15/2018" />
             
       
-                <form action="http://localhost:8080/---" method="POST">
+                <form id="time" action="http://localhost:8080/index" method="POST">
                   <table class="table table-bordered">
                     <thead>
                       <tr>
@@ -82,21 +82,21 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">Duration (hrs)</th>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
-                    <td><input type="text"  size="4"/></td>
+                    <th id="duration" scope="row">Duration (hrs)</th>
+                    <td><input id="MonT" type="text"  size="4"/></td>
+                    <td><input id="TueT" type="text"  size="4"/></td>
+                    <td><input id="WedT" type="text"  size="4"/></td>
+                    <td><input id="ThuT" type="text"  size="4"/></td>
+                    <td><input id="FriT" type="text"  size="4"/></td>
+                    <td><input id="SatT" type="text"  size="4"/></td>
+                    <td><input id="SunT" type="text"  size="4"/></td>
                   </tr>
   
                   </tbody>
                   </table>
 
                   <div class="save" align="right">  
-                  <button class="btn btn-primary" type='submit'>Save</button>
+                  <button class="btn btn-primary" id="saveTime" type='submit'>Save</button>
                   </div> 
                   </form>
 
@@ -107,11 +107,13 @@
                     <div class="card-group">
                         <div class="card">
                           <div class="card-body">
-                            <h5 class="card-title">Pay Rate</h5>
-                            <span class="input-group-addon">$</span>
-                            <form action="http://localhost:8080/---" method="POST">
-                              <input type="text" class="form-control" placeholder=""/>
-                            <button class="btn btn-primary" type='submit'>Save</button>
+                              <h5 class="card-title">Hourly Rate</h5>
+                                  <div class="input-group">
+                                          <span class="input-group-addon">$</span>
+                                          <form action="http://localhost:8080/index" method="POST">
+                                            <input id="rateHourly" type="text" class="form-control" placeholder=""/>
+                                            <button class="btn btn-primary" id="rate" type='submit'>Save</button>
+                                          </div>
 
                     </form>
                           </div>
