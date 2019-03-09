@@ -1,6 +1,7 @@
 drop database if exists taxforsure;
 create database taxforsure;
 use taxforsure;
+select * from time;
 
 /* CREATE TABLE users (
     `userId` INT AUTO_INCREMENT,
